@@ -1,8 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
+from django.urls import reverse
 from rainforest.models import Product
 # import pdb
 
+# NB: dont need to pass the request for a redirect
+def root(request):
+    return redirect(reverse('show_all'))
 
 def show_all(request):
     products = Product.objects.all()
