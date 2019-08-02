@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from rainforest import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('products', views.show_products),
 ]
