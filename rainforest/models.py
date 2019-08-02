@@ -14,3 +14,8 @@ class Product(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.price_in_cents} in pennies"
+    
+    # convert cents into dollars 
+    def price_in_dollars(self):
+        return self.price_in_cents / 100 
+

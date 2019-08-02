@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section>
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.description }}</p>
+    <!-- display the price in dollars by calling the function -->
+    <h6>{{ product.price_in_dollars|floatformat:2}} </h6>
+</section>
+
+{% endblock %}
