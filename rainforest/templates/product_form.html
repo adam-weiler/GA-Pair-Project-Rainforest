@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form action="" method="POST">
+<form action="{% url 'create_product' %}" method="POST">
 {% csrf_token %}
 <table>
 {{ form.as_table }}

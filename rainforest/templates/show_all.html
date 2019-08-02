@@ -9,7 +9,7 @@
 <ul>
     <li><a href= '{% url "show_product" id=product.pk %}' class = 'link'> {{ product.name }}</a></li>
     <li>{{ product.description }}</li>
-    <li>{{ product.price_in_cents }}</li>
+    <li>{{ product.price_in_dollars | floatformat:2 }}</li>
 </ul>
 {% endfor %}
 

@@ -10,22 +10,33 @@ from rainforest.forms import ProductForm
 
 
 def root(request):
-    return redirect(reverse('show_all'))
+    return redirect(reverse("show_all"))
 
 
 def show_all(request):
     products = Product.objects.all()
-    context = {'products': products}
-    return render(request, 'show_all.html', context)
+    context = {"products": products}
+    return render(request, "show_all.html", context)
 
 
 def show_product(request, id):
     product = Product.objects.get(pk=id)
-    context = {'product': product}
-    return render(request, 'show_product.html', context)
+    context = {"product": product}
+    return render(request, "show_product.html", context)
 
 
 def new_product(request):
     form = ProductForm()
-    context = {'form': form}
-    return render(request, 'product_form.html', context)
+    context = {"form": form}
+    return render(request, "product_form.html", context)
+
+
+def create_product(request):
+    form = ProductForm(request.POST)
+    if form.is_valid():
+        form.save()
+        return redirect(reverse("show_all"))
+    else:
+        context = {"form": form}
+        return render(request, "product_form.html", context)
+
