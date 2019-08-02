@@ -13,4 +13,4 @@ class Product(models.Model):
     price_in_cents = models.IntegerField(validators=[MinValueValidator(1)], null=True)
 
     def __str__(self):
-        return f"name = {self.name}"
+        return f"{self.name} - {self.price_in_cents} in pennies"
