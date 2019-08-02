@@ -122,3 +122,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Rainforest app:
+*.sqlite3
+__pycache__
+.DS_STORE
