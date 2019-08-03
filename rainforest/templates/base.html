@@ -10,16 +10,17 @@
 <body>
     <nav>
         <a href= '{% url "show_all" %}' class = 'link'> 
-             See all products    
+             See all products
         </a>
-        
+        ---
+        <a href= '{% url "new_product" %}' class = 'link'> 
+            Create a new product
+        </a>
     </nav>
     <main>
         {% block content %}
 
         {% endblock %}
     </main>
-
-    
 </body>
 </html>
