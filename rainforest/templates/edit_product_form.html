@@ -2,13 +2,15 @@
 
 {% block content %}
 
+<h1>Edit Existing Product</h1>
+
 <form action="{% url 'update_product' id=product.pk %}" method="POST">
 {% csrf_token %}
 <table>
 {{ form.as_table }}
 </table>
 
-<input type="submit" value="Save Product" />
+<input type="submit" value="Save Product" /> <a href= "{% url 'show_product' id=product.pk %}" class = 'link'>Cancel changes</a>
 </form>
 
 {% endblock %}

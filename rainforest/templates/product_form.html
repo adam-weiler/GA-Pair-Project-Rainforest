@@ -2,6 +2,8 @@
 
 {% block content %}
 
+<h1>Submit a new Product</h1>
+
 <form action="{% url 'create_product' %}" method="POST">
 {% csrf_token %}
 <table>
