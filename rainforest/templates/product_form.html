@@ -5,12 +5,12 @@
 <h1>Submit a new Product</h1>
 
 <form action="{% url 'create_product' %}" method="POST">
-{% csrf_token %}
-<table>
-{{ form.as_table }}
-</table>
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
 
-<input type="submit" value="Save Product" />
+    <input type="submit" value="Save Product" />
 </form>
 
 {% endblock %}

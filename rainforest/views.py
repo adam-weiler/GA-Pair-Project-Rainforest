@@ -48,13 +48,20 @@ def edit_product(request, id): #Renders a form to edit an existing product.
     return render(request, "edit_product_form.html", context)
 
 
-def update_product(request, id): #User updating a new product
+def update_product(request, id): #User updating an existing product.
     product = Product.objects.get(pk=id)
     form = ProductForm(request.POST, instance=product)
     if form.is_valid():
         form.save()
         return redirect(reverse("show_all"))
-    else: #Else sends user back to new product form.
+    else: #Else sends user back to existing product form.
         context = {"product": product, "form": form }
         return render(request, "edit_product_form.html", context)
 
+
+def delete_product(request, id): #User deleting an existing product.
+    product = Product.objects.get(pk=id)
+    product.delete()
+    return redirect(reverse("show_all"))
+
+    
