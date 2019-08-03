@@ -10,6 +10,7 @@
     <li><a href= '{% url "show_product" id=product.pk %}' class = 'link'> {{ product.name }}</a></li>
     <li>{{ product.description }}</li>
     <li>{{ product.price_in_dollars | floatformat:2 }}</li>
+    <li>( <a href='{% url "edit_product" id=product.pk %}'>Edit</a> )</li>
 </ul>
 {% endfor %}
 
