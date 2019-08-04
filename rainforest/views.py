@@ -94,9 +94,13 @@ def update_review(request, product_id, review_id):
         form.save()
         return redirect(reverse("show_all"))
     else:
-        context = {"review": review, "form": form, "product":product}
+        context = {"review": review, "form": form, "product": product}
         return render(request, "edit_review_form.html", context)
-        
+    
+def delete_review(request, product_id, review_id): 
+    review = Review.objects.get(pk=review_id)
+    review.delete()
+    return redirect(reverse("show_all"))
         
 
        
