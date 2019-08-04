@@ -11,7 +11,8 @@
 
 <ul>
 {% for review in product.reviews.all %}
-    <li>{{ review.comment }}</li>
+    <li>{{ review.comment }}
+    [ <a href="/products/{{product.id}}/reviews/{{review.id}}/edit">Edit</a> | <a href="#">Delete</a> ]</li> 
 {% endfor %}
 </ul>
 

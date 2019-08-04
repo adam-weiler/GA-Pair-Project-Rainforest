@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from rainforest.models import Product
+from rainforest.models import Product, Review
 from rainforest.forms import ProductForm, ReviewForm
 
 # import pdb
@@ -66,7 +66,7 @@ def delete_product(request, id):  # User deleting an existing product.
     return redirect(reverse("show_all"))
 
 
-def create_review(request, product_id):
+def create_review(request, product_id): #User creating a review
     product = Product.objects.get(pk=product_id)
     form = ReviewForm(request.POST)
     if form.is_valid():
@@ -77,3 +77,29 @@ def create_review(request, product_id):
 
     context = {"product": product, "form": form}
     return render(request, "show_product.html", context)
+
+def edit_review(request, product_id, review_id): #Edit review form 
+    product = Product.objects.get(pk=product_id)
+    review = Review.objects.get(pk=review_id)
+    review.product_id=review_id
+    form = ReviewForm(instance=review)
+    context = {"review": review, "form": form, "product":product}
+    
+    return render(request, "edit_review_form.html", context)
+
+def update_review(request, product_id, review_id):
+    review = Review.objects.get(pk=review_id)
+    form = ReviewForm(request.POST, instance=review)
+    if form.is_valid():
+        form.save()
+        return redirect(reverse("show_all"))
+    else:
+        context = {"review": review, "form": form, "product":product}
+        return render(request, "edit_review_form.html", context)
+        
+        
+
+       
+
+
+

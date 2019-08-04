@@ -32,4 +32,13 @@ urlpatterns = [
         views.create_review,
         name="create_review",
     ),
+
+
+    path("products/<int:product_id>/reviews/<int:review_id>/update", views.update_review, name="update_review"), 
+
+
+    path("products/<int:product_id>/reviews/<int:review_id>/edit", views.edit_review, name="edit_review"), 
+
+
+    
 ]

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Edit Your Review of {{ product.name }}</h1>
+
+<form method="POST" action="/products/{{product.id}}/reviews/{{review.id}}/update" >
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+
+    <input type="submit" value="Save Review" />
+</form>
+
+
+
+
+{% endblock %}
