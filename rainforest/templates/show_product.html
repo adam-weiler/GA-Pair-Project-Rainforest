@@ -14,4 +14,10 @@
     <li>{{ review.comment }}</li>
 {% endfor %}
 </ul>
+
+<form action="{% url 'create_review' product_id=product.pk %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Add Comment" />
+</form>
 {% endblock %}
