@@ -9,4 +9,9 @@
     <h6>{{ product.price_in_dollars|floatformat:2}} </h6>
 </section>
 
+<ul>
+{% for review in product.reviews.all %}
+    <li>{{ review.comment }}</li>
+{% endfor %}
+</ul>
 {% endblock %}
