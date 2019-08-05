@@ -100,7 +100,10 @@ def update_review(request, product_id, review_id):
 def delete_review(request, product_id, review_id): 
     review = Review.objects.get(pk=review_id)
     review.delete()
-    return redirect(reverse("show_all"))
+    
+    # return redirect(reverse("show_all")) #This works; just testing soethng
+
+    return redirect(reverse("show_product", kwargs={"id":product_id}))
         
 
        
