@@ -4,7 +4,7 @@
 
 <h1>Edit Your Review of {{ product.name }}</h1>
 
-<form method="POST" action="/products/{{product.id}}/reviews/{{review.id}}/update" >
+<form method="POST" action="{% url 'update_review' product_id=product.pk review_id=review.pk %}" >
     {% csrf_token %}
     <table>
         {{ form.as_table }}
