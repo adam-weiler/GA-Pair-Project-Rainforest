@@ -1,1 +1,1 @@
-web: gunicorn rainforest.wsgi --log-file
+web: gunicorn rainforest.wsgi
